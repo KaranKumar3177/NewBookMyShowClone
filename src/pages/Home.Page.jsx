@@ -3,7 +3,7 @@ import DefaultLayoutHoc from '../layout/Default.layout'
 
 // Components
 import HeroCarousel from '../components/HeroCarousel/HeroCarousel.Component'
-import EntertainmentCardSlider from '../components/Entertainmnet/EntertainmentCard.Component'
+import EntertainmentCard from '../components/Entertainmnet/EntertainmentCard.Component'
 import PosterSlider from '../components/PosterSlider/PosterSlider.Component'
 
 
