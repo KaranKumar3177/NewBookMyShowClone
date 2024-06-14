@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import DefaultLayoutHoc from '../layout/Default.layout'
+import axios from 'axios'
 
 // Components
 import HeroCarousel from '../components/HeroCarousel/HeroCarousel.Component'
@@ -13,6 +14,29 @@ const HomePage = () => {
     const [premierMovies, setPremierMovies] = useState([])
     const [onlineStreamEvents, setOnlineStreamEvents] = useState([])
 
+    useEffect(()=>{
+        const requestTopRatedMovies = async () => {
+            const getTopRatedMovies = await axios.get('https://api.themoviedb.org/3/movie/top_rated?api_key=01fc8fcea82a3bca9444250d3d3b3c5d')
+            setRecommendedMovies(requestTopRatedMovies.data.result)
+        }
+        requestTopRatedMovies();
+    },[])
+    
+    useEffect(()=>{
+        const requestPopularMovies = async () => {
+            const getPopularMovies = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=01fc8fcea82a3bca9444250d3d3b3c5d')
+            setPremierMovies(getPopularMovies.data.result)
+        }
+        requestPopularMovies();
+    },[])
+
+    useEffect(()=>{
+        const requestUpcomingMovies = async () => {
+            const getUpcomingMovies = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=01fc8fcea82a3bca9444250d3d3b3c5d')
+            setOnlineStreamEvents(getUpcomingMovies.data.result)
+        }
+        requestUpcomingMovies();
+    },[])
 
   return (
     <>
