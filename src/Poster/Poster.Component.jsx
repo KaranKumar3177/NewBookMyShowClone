@@ -7,7 +7,7 @@ const Poster = (props) => {
       <div className='h-40 md:h-80'>
        <img src={`https://image.tmdb.org/t/p/original${props.poster_path}`} alt="poster" className='w-full h-full rounded-md' />
       </div>
-      <h3 className={`text-md font-semibold flex flex-col items-center ${isDark ? "text-white" : "text-gray-700"}`}>{props.title}</h3>
+      <h3 className={`text-md font-semibold flex flex-col items-center ${ isDark ? "text-white" : "text-gray-700"}`}>{props.title}</h3>
     </div>
   </Link>
 }
